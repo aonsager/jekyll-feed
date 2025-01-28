@@ -75,6 +75,9 @@
 
       <title type="html">{{ post_title }}</title>
       <link href="{{ post.url | absolute_url }}" rel="alternate" type="text/html" title="{{ post_title }}" />
+      {% if post.link %}
+      <link href="{{ post.link }}" rel="related" type="text/html" title="{{ post.link }}" />
+      {% endif %}
       <published>{{ post.date | date_to_xmlschema }}</published>
       <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
       <id>{{ post.id | absolute_url | xml_escape }}</id>
